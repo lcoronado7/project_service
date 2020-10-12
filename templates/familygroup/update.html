@@ -1,0 +1,88 @@
+{% extends 'index.html' %}
+
+{% block title %}Registro de miembro familiar {% endblock title %}
+{% block content %}
+<div class="col-12 justify-content-center text-center">
+    <div class="contact-form">
+        <h3 class="form-title text-left">Registro de miembro familiar del estudiante</h3>
+        <!-- Contact Form -->
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input name="student" type="hidden" value="{{object.student.id}}">
+            <div class="row">
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="nombre" type="text" name="name"
+                            value="{{object.name}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>nombre</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="relación" type="text" name="relationship"
+                            value="{{object.relationship}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>relación</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="edad" type="number" name="age"
+                            value="{{object.age}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>edad</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="grado de institucion" type="text" name="institute_grade"
+                            value="{{object.institute_grade}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>grado de institucion</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="ocupacion u oficio" type="text" name="occupation"
+                            value="{{object.occupation}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>ocupacion u oficio</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="ingreso familiar" type="number" step=0.01 name="family_income"
+                            value="{{object.family_income}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>ingreso familiar</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group"> 
+                        <input aria-label="¿vive en el hogar?" type="checkbox" name="live_at_home"
+                        checked="{{object.live_at_home}}" value="{{object.live_at_home}}" required>
+                       
+                        <label>¿vive en el hogar?</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn world-btn">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

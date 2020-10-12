@@ -1,0 +1,150 @@
+{% extends 'index.html' %}
+
+{% block title %}Registro socio-economico {% endblock title %}
+{% block content %}
+<div class="col-12 justify-content-center text-center">
+    <div class="contact-form">
+        <h3 class="form-title text-left">Registro socio-economico del estudiante</h3>
+        <!-- Contact Form -->
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input name="student" type="hidden" value="{{object.student.id}}">
+            <div class="row">
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="Nombre del responsable familiar" type="text" name="family_head_name"
+                            value="{{object.family_head_name}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Nombre del responsable familiar</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="relacion con el responsable de familia" type="text" name="family_head_relationship"
+                            value="{{object.family_head_relationship}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>relacion con el responsable de familia</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="tipo de vivienda" type="text" name="house_type"
+                            value="{{object.house_type}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>tipo de vivienda</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="condicion de vivienda" type="text" name="house_condition"
+                            value="{{object.house_condition}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>condicion de vivienda</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="monto promedio recibido" type="number" step=0.01 name="average_amount_received"
+                            value="{{object.average_amount_received}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>monto promedio recibido</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="uso del comedor, especifique" type="text" name="use_dinning_hall"
+                            value="{{object.use_dinning_hall}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>uso del comedor, especifique</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="horario en que usa el comedor" type="text" name="schedule"
+                            value="{{object.schedule}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>horario en que usa el comedor</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="medio de transporte" type="text" name="transport"
+                            value="{{object.transport}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>medio de transporte</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="nombre de la empresa" type="text" name="company_name"
+                            value="{{object.company_name}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>nombre de la empresa</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="trabajo que desempeña" type="text" name="job_perform"
+                            value="{{object.job_perform}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>trabajo que desempeña</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="direccion del trabajo" type="text" name="work_address"
+                            value="{{object.work_address}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>direccion del trabajo</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="telefono del trabajo" type="text" name="work_phone"
+                            value="{{object.work_phone}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>telefono del trabajo</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="salario" type="number" step=0.01 name="salary"
+                            value="{{object.salary}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>salario</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn world-btn">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

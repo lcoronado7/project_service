@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+{% block title %}Menu de Estudiante{% endblock title %}
+{% block content %}
+<div class="container list-page">
+    <div class="row">
+        <div class="col-12 text-right justify-content-end py-2">
+            <h3 class="form-title text-left">Menu de Estudiante {{student}}</h3>
+        </div>
+    </div>
+    <div class="row filterable ">
+        <div class="table-responsive">
+            <div class="limiter">
+                <div class="container-table100">
+                    <div class="wrap-table100">
+                        <div class="table100">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center justify-content-center">Opciones de estudiante {{student}}</th>
+                                        <th class="text-center justify-content-center">Proceso</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center justify-content-center">Datos Personales</td>
+                                        <td class="text-center justify-content-center">
+                                            <a role="button" href="{% url 'student_update' student.id %}" class="btn world-btn" style="text-decoration: none;">Actualizar</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center justify-content-center">Datos Academicos</td>
+                                        <td class="text-center justify-content-center">
+                                            {% if student.academic %}
+                                                <a role="button" href="{% url 'academic_update' student.academic.id %}" class="btn world-btn" style="text-decoration: none;">Actualizar</a>
+                                            {% else %}
+                                                <a role="button" href="{% url 'academic_create' student.id%}" class="btn world-btn" style="text-decoration: none;">Registrar</a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center justify-content-center">Datos Socio-Economicos</td>
+                                        <td class="text-center justify-content-center">
+                                            {% if student.socio_economic %}
+                                                <a role="button" href="{% url 'socio_update' student.socio_economic.id %}" class="btn world-btn" style="text-decoration: none;">Actualizar</a>
+                                            {% else %}
+                                                <a role="button" href="{% url 'socio_register' student.id%}" class="btn world-btn" style="text-decoration: none;">Registrar</a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% if student.socio_economic %}
+                                    <tr>
+                                        <td class="text-center justify-content-center">Datos de Socio-Economicos familia</td>
+                                        <td class="text-center justify-content-center">
+                                            <a role="button" href="{% url 'family_list' student.socio_economic.id %}" class="btn world-btn" style="text-decoration: none;">Ir</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center justify-content-center">Datos de familia con discapacidad</td>
+                                        <td class="text-center justify-content-center">
+                                            <a role="button" href="{% url 'discapacity_list' student.socio_economic.id %}" class="btn world-btn" style="text-decoration: none;">Ir</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center justify-content-center">Datos de asistencia economica</td>
+                                        <td class="text-center justify-content-center">
+                                            <a role="button" href="{% url 'financial_list' student.socio_economic.id %}" class="btn world-btn" style="text-decoration: none;">Ir</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center justify-content-center">Datos de asistencia UNEG</td>
+                                        <td class="text-center justify-content-center">
+                                            <a role="button" href="{% url 'uneg_list' student.socio_economic.id %}" class="btn world-btn" style="text-decoration: none;">Ir</a>
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    <tr>
+                                        <td class="text-center justify-content-center">Eliminar estudiante</td>
+                                        <td class="text-center justify-content-center">
+                                            <a role="button" href="{% url 'student_delete' student.id %}" class="btn world-btn" style="text-decoration: none; background-color: red;">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

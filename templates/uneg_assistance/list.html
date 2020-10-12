@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+{% block title %}Lista de Asistencias UNEG{% endblock title %}
+{% block content %}
+<div class="container list-page">
+    <div class="row">
+        <div class="col-12 text-right justify-content-end py-2">
+            <h3 class="form-title text-left">Lista de Asistencias UNEG</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-left">
+            <a href="{% url 'uneg_register' pk %}" role="button" class="btn world-btn" style="text-decoration: none;">Registrar nueva asistencia</a>
+        </div>
+    </div>
+    <div class="row filterable ">
+        <div class="table-responsive">
+            <div class="limiter">
+                <div class="container-table100">
+                    <div class="wrap-table100">
+                        <div class="table100">
+                            <table class="table">
+                                <thead>
+                                    <tr class="table100-head">
+                                        <th class="text-center justify-content-center">tipo de beneficio</th>
+                                        <th class="text-center justify-content-center">ultimo supervisor</th>
+                                        <th class="text-center justify-content-center">Detalles</th>
+                                        <th class="text-center justify-content-center">Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for object in object_list %}
+                                    <tr>
+                                        <td class="column1 text-center justify-content-center">{{ object.benefit_type }}</td>
+                                        <td class="column2 text-center justify-content-center">{{ object.last_supervisor }}</td>
+                                        <td class="column3 text-center justify-content-center">
+                                            <a role="button" href="{% url 'uneg_update' object.id %}" class="btn world-btn" style="text-decoration: none;">Ver mas</a>
+                                        </td>
+                                        <td class="column4 text-center justify-content-center">
+                                            <a  role="button"  href="{% url 'uneg_delete' object.id %}" class="btn world-btn" style="text-decoration: none;">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                        <h5 class="form-title text-center">No hay datos</h5>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

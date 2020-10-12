@@ -1,0 +1,201 @@
+{% extends 'index.html' %}
+{% block title %}Registro academico del estudiante{% endblock title %}
+{% block content %}
+<div class="col-12 justify-content-center text-center">
+    <div class="contact-form">
+        <h3 class="form-title text-left">Registro academico del estudiante {{academic.student}}</h3>
+        <!-- Contact Form -->
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input name="student" type="hidden" value="{{academic.student.id}}">
+            <div class="row">
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="nombre de la institucion" type="text" name="institution_name"
+                            value="{{object.institution_name}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>nombre de la institucion</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="direccion" type="text" name="address"
+                            value="{{object.address}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>direccion</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="ciudad y estado" type="text" name="city_state"
+                            value="{{object.city_state}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>ciudad y estado</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="año de graduacion" type="text" name="graduation_year"
+                            value="{{object.graduation_year}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>año de graduacion</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="bachiller en" type="text" name="graduate_mention"
+                            value="{{object.graduate_mention}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>bachiller en</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="tipo de institucion" type="text" name="institution_type"
+                            value="{{object.institution_type}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>tipo de institucion</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="promedio de notas" type="number" step=0.01 
+                        min="0" lang="en" name="grade_point_average"
+                            value="{{object.grade_point_average|floatformat:2}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>promedio de notas</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="sede uneg" type="text" name="uneg_headquarters"
+                            value="{{object.uneg_headquarters}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>sede uneg</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="proyecto de carrera" type="text" name="carrer_procject"
+                            value="{{object.carrer_procject}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>proyecto de carrera</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="fecha de admision" type="date" name="admission_date"
+                            value="{{object.admission_date|date:'Y-m-d'}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>fecha de admision</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="modalidad de ingreso" type="text" name="entry_mode"
+                            value="{{object.entry_mode}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>modalidad de ingreso</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="periodo academico" type="text" name="academic_period"
+                            value="{{object.academic_period}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>periodo academico</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="nivel de semestre" type="number" name="semester_level"
+                            value="{{object.semester_level}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>nivel de semestre</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="indice academico" type="number" step=0.01 
+                            min="0" lang="en" name="academic_index"
+                            value="{{object.academic_index|floatformat:2}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>indice academico</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="estatus" type="text" name="status"
+                            value="{{object.status}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>estatus</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="recursos adicionales" type="text" name="additional_resources"
+                            value="{{object.additional_resources}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>recursos adicionales</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="condiciones de la universidad" type="text" name="university_conditions"
+                            value="{{object.university_conditions}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>condiciones de la universidad</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="group">
+                        <input aria-label="actividades extracurriculares" type="text" name="extracurricular_activities"
+                            value="{{object.extracurricular_activities}}"
+                            required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>actividades extracurriculares</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn world-btn">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+{% block title %}Lista de Estudiantes{% endblock title %}
+{% block content %}
+<div class="container list-page">
+    <div class="row">
+        <div class="col-12 text-right justify-content-end py-2">
+            <h3 class="form-title text-left">Lista de Estudiantes</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-left">
+            <a href="{% url 'student_register' %}" role="button" class="btn world-btn" style="text-decoration: none;">Crear nuevo estudiante</a>
+        </div>
+    </div>
+    <div class="row filterable ">
+        <div class="row  text-right">
+            <button class="world-btn btn-filter">Activar Filtros</button>
+        </div>
+        <div class="table-responsive">
+            <div class="limiter">
+                <div class="container-table100">
+                    <div class="wrap-table100">
+                        <div class="table100">
+                            <table  class="table">
+                                <thead>
+                                    <tr class="filters table100-head">
+                                        <th class="text-center justify-content-center"><input type="text" class="form-control" placeholder="#" disabled></th>
+                                        <th class="text-center justify-content-center"><input type="text" class="form-control" placeholder="Nombres" disabled></th>
+                                        <th class="text-center justify-content-center"><input type="text" class="form-control" placeholder="Apellidos" disabled></th>
+                                        <th class="text-center justify-content-center"><input type="text" class="form-control" placeholder="Cedula" disabled></th>
+                                        <th class="text-center justify-content-center">Detalles</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for student in object_list %}
+                                    <tr>
+                                        <td class="column1 text-center justify-content-center">{{ student.id }}</td>
+                                        <td class="column2 text-center justify-content-center">{{ student.first_name }}</td>
+                                        <td class="column3 text-center justify-content-center">{{ student.last_name }}</td>
+                                        <td class="column4 text-center justify-content-center">{{ student.cedula }}</td>
+                                        <td class="column5 justify-content-center">
+                                            <a role="button" href="{% url 'student_menu' student.id %}" class="btn world-btn" style="text-decoration: none;">Ver mas</a>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                        <h5 class="form-title text-center">No hay datos</h5>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
